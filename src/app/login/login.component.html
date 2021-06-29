@@ -1,0 +1,15 @@
+<section class="home">
+    <h1>Login Here:</h1>
+    <h3>Current Username: {{user.username}}</h3>
+    <div>
+        <label> 
+            Username: <input [(ngModel)]="user.username" placeholder="eg. Temp">
+        </label>
+        <label> 
+            Password: <input [(ngModel)]="user.password" placeholder="eg. Pass">
+        </label>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary"> Log in </button>
+    </div>
+</section>

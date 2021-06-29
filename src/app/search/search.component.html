@@ -1,0 +1,35 @@
+<h2>Search</h2>
+<input #prefix placeholder="Search Everyone" [(ngModel)]=prefix.value pInputText />
+<h1>Currently Searching: {{prefix.value}}</h1>
+<div>
+    <button type="button" (click)="getPeople(prefix.value)" class="btn btn-primary"> Submit </button>
+    <div>
+        Search Results:
+        <ol>
+            <li *ngFor="let person of people$ | async; let i = index">
+                {{person.name}}
+                <div class="row">
+                    <div class="col">
+                        <button id={{i}} (click)="showDetails($event, i)" type="button" class="btn btn-primary btn-sm">View</button>
+                        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+                    </div>
+                    <div class="col" [hidden]=!clicked[i]>
+                        <div>Start Date: {{person.start_date}}</div>   
+                        <div>End Date: {{person.end_date}}  </div>
+                        <button routerLink='view' type="button" class="btn btn-outline-info">See More</button>
+                    </div> 
+                </div>
+            </li>
+        </ol>    
+    </div>
+    <!-- <div>
+        Persons Results:
+        <ol>
+            <li *ngFor="let p of persons; let i = index">
+                {{p.name}}
+            </li>
+        </ol>  
+    </div> -->
+</div>
+<!-- <input [(ngModel)]="newPerson.name" placeholder="change newbie" >
+{{newPerson.name}} -->

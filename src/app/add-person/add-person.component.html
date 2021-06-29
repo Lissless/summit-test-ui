@@ -1,0 +1,44 @@
+<h1>Add A New Person!</h1>
+<!-- <form #f="ngForm"> -->
+<div class="row">
+    <div class="col">
+        <label for="Person Name">Full Name</label>
+        <input [(ngModel)]="newPerson.name" type="text" class="form-control" placeholder="First Name">
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label for="Dates">Start Date</label>
+        <input [(ngModel)]="newPerson.start_date" type="date" class="form-control" placeholder="Start Date">
+    </div>
+    <div class="col">
+        <label for="Dates">End Date</label>
+        <input [(ngModel)]="newPerson.end_date" type="date" class="form-control" placeholder="End Date">
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label for="Payments">Utilities</label>
+        <input [(ngModel)]="newPerson.utilities" type="number" class="form-control" placeholder="Utilities">
+    </div>
+    <div class="col">
+        <label for="Payments">Owed</label>
+        <input [(ngModel)]="newPerson.owed" type="number" class="form-control" placeholder="Owed">
+    </div>
+</div>
+<!-- </form>  -->
+<div class="row">
+    <div class="col">
+        <h2>Current New Person:</h2>
+        <h4>Name: {{newPerson.name}}</h4>
+        <h4>Start Date: {{newPerson.start_date}}</h4>
+        <h4>End Date: {{newPerson.end_date}}</h4>
+        <h4>Utilities: {{newPerson.utilities}}</h4>
+        <h4>Owed: {{newPerson.owed}}</h4>
+    </div>
+    <div class="col" *ngIf="success">
+        <h1>Success! {{newPerson.name}} has been added!</h1>
+    </div>
+</div>
+<button type="button" (click)="addPerson()" class="btn btn-primary"> Submit </button>
+
